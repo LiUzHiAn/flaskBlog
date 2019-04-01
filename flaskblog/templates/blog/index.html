@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pager %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="display-3">{{ admin.blog_title|default('Blog Title') }}</h1>
+    <h4 class="text-muted">&nbsp;{{ admin.blog_sub_title|default('Blog Subtitle') }}</h4>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <!--文章信息列表-->
+        {% include 'blog/_posts.html' %}
+
+        <!--页码条,以下两种方式供选用-->
+        {% if posts %}
+        <div class="page-footer">{{ render_pager(pagination) }}</div>
+        <div class="page-footer">{{ render_pagination(pagination) }}</div>
+
+        {% endif %}
+    </div>
+
+    <!--侧边栏-->
+    <div class="col-md-4 sidebar">
+        {% include 'blog/_sidebar.html' %}
+    </div>
+</div>
+{% endblock %}

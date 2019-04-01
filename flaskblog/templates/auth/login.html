@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}登录{% endblock %}
+
+{% block content %}
+<div class="container h-100">
+    <div class="row h-100 page-header justify-content-center align-items-center">
+        <h1>Log in</h1>
+    </div>
+    <div class="row h-100 justify-content-center align-items-center">
+        {{ render_form(form, extra_classes='col-6') }}
+    </div>
+</div>
+{% endblock %}
+
+<!--页脚的登录登出设置为空-->
+{% block footer %}
+<footer>
+    <!--代码版权信息-->
+    <p class="float-left">
+        <small> &copy; 2019
+            <a href="https://github.com/LiUzHiAn/" title="我的GitHub">我的GitHub</a>
+        </small>
+    </p>
+</footer>
+{% endblock %}
